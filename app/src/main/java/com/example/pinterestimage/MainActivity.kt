@@ -29,13 +29,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
-        viewModel.getImages("49164749-a4e8aa80ec795c35329a829ea", "orange")
+        viewModel.getImages("49164749-a4e8aa80ec795c35329a829ea", "red")
+        viewModel.getWeather("2d5237966f194da68be135953251002", "Tokyo")
 
         binding.apply {
             recyclerView.adapter = adapter
             viewModel.images.observeForever { response ->
                 adapter.submitList(response.hits)
             }
+            viewModel.weather.observe(this@MainActivity) { response ->
+                textView.text = viewModel.weather.value?.current?.tempC.toString()
+            }
+
         }
 
 
