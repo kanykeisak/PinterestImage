@@ -19,7 +19,7 @@ class ApiAdapter: ListAdapter<ApiResponse.Hit, ApiAdapter.ApiViewHolder>(ApiDiff
         binding.root
     )
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiAdapter.ApiViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiViewHolder {
         val binding = ItemListBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
@@ -28,7 +28,7 @@ class ApiAdapter: ListAdapter<ApiResponse.Hit, ApiAdapter.ApiViewHolder>(ApiDiff
         return ApiViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ApiAdapter.ApiViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ApiViewHolder, position: Int) {
         holder.binding.apply {
             val item = getItem(position)
             Glide.with(holder.itemView)

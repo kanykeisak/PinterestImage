@@ -1,6 +1,7 @@
 package com.example.pinterestimage.model.core
 
 import com.example.pinterestimage.model.service.ApiService
+import com.example.pinterestimage.model.service.WeatherApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -41,6 +42,11 @@ object RetrofitClient {
     @Provides
     @Singleton
     fun provideApiService(retrofit: retrofit2.Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+
+    @Provides
+    @Singleton
+    fun provideWeatherApiService(retrofit: retrofit2.Retrofit): WeatherApiService = retrofit.create(WeatherApiService::class.java)
 
 
 }
